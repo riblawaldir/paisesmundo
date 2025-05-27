@@ -8,26 +8,71 @@ use App\Models\Pais;
 class PaisSeeder extends Seeder
 {
     public function run(): void
-{
-    // Lista de países con imágenes reales
-    $paisesConImagenes = [
-        ['nombre' => 'Argentina', 'imagen' => 'argentina.png'],
-        ['nombre' => 'Brasil', 'imagen' => 'brasil.png'],
-        ['nombre' => 'México', 'imagen' => 'mexico.png'],
-        ['nombre' => 'Francia', 'imagen' => 'francia.png'],
-        ['nombre' => 'Alemania', 'imagen' => 'alemania.png'],
-        ['nombre' => 'España', 'imagen' => 'espana.png'],
-    ];
+    {
+        // Países reales con datos correctos
+        $paises = [
+            [
+                'nombre' => 'Argentina',
+                'capital' => 'Buenos Aires',
+                'region' => 'América del Sur',
+                'poblacion' => 46000000,
+                'idioma' => 'Español',
+                'moneda' => 'Peso argentino',
+                'imagen' => 'argentina.png',
+            ],
+            [
+                'nombre' => 'Brasil',
+                'capital' => 'Brasilia',
+                'region' => 'América del Sur',
+                'poblacion' => 213000000,
+                'idioma' => 'Portugués',
+                'moneda' => 'Real',
+                'imagen' => 'brasil.png',
+            ],
+            [
+                'nombre' => 'México',
+                'capital' => 'Ciudad de México',
+                'region' => 'América del Norte',
+                'poblacion' => 126000000,
+                'idioma' => 'Español',
+                'moneda' => 'Peso mexicano',
+                'imagen' => 'mexico.png',
+            ],
+            [
+                'nombre' => 'Francia',
+                'capital' => 'París',
+                'region' => 'Europa Occidental',
+                'poblacion' => 67000000,
+                'idioma' => 'Francés',
+                'moneda' => 'Euro',
+                'imagen' => 'francia.png',
+            ],
+            [
+                'nombre' => 'Alemania',
+                'capital' => 'Berlín',
+                'region' => 'Europa Central',
+                'poblacion' => 83000000,
+                'idioma' => 'Alemán',
+                'moneda' => 'Euro',
+                'imagen' => 'alemania.png',
+            ],
+            [
+                'nombre' => 'España',
+                'capital' => 'Madrid',
+                'region' => 'Europa del Sur',
+                'poblacion' => 47000000,
+                'idioma' => 'Español',
+                'moneda' => 'Euro',
+                'imagen' => 'espana.png',
+            ],
+        ];
 
-    // Crear esos países con imágenes específicas
-    foreach ($paisesConImagenes as $data) {
-        Pais::factory()->create([
-            'nombre' => $data['nombre'],
-            'imagen' => $data['imagen']
-        ]);
+        // Insertar esos países con datos fijos
+        foreach ($paises as $data) {
+            Pais::create($data);
+        }
+
+        // Rellenar con 44 países falsos
+        Pais::factory(44)->create();
     }
-
-    // Crear 44 países restantes con imagen por defecto
-    Pais::factory(44)->create();
-}
 }
